@@ -1,0 +1,8 @@
+streamlit
+phi-assistant
+groq
+numpy
+faiss-cpu
+python-dotenv
+sentence-transformers
+pymysql
