@@ -29,7 +29,7 @@ def create_mysql_connection():
 @st.cache_resource
 def get_assistant():
     return Assistant(
-        llm=Groq(model="llama-3.1-70b-versatile", api_key="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"),
+        llm=Groq(model="llama-3.1-70b-versatile", api_key="Your_API_KEY"),
         description="I am a helpful AI assistant powered by Groq. How can I assist you today?",
     )
 
