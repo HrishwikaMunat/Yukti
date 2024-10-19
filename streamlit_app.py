@@ -15,10 +15,10 @@ load_dotenv()
 def create_mysql_connection():
     try:
         conn = pymysql.connect(
-            host="localhost",
-            user="root",
-            password="1234",
-            database="debug"
+            host=os.getenv("MYSQL_HOST"),
+            user=os.getenv("MYSQL_USER"),
+            password=os.getenv("MYSQL_PASSWORD"),
+            database=os.getenv("MYSQL_DATABASE")
         )
         return conn
     except pymysql.MySQLError as e:
@@ -29,7 +29,7 @@ def create_mysql_connection():
 @st.cache_resource
 def get_assistant():
     return Assistant(
-        llm=Groq(model="llama-3.1-70b-versatile", api_key="Your_API_KEY"),
+        llm=Groq(model="llama-3.1-70b-versatile", api_key=os.getenv("Groq_API_key")),
         description="I am a helpful AI assistant powered by Groq. How can I assist you today?",
     )
 
